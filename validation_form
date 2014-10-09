@@ -1,0 +1,49 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    <script>
+        angular.module('formExample', [])
+                .controller('ExampleController', ['$scope', function($scope) {
+                        alert('cksj');
+                        $scope.master = {};
+                        $scope.update = function(user) {
+                            $scope.master = angular.copy(user);
+                        };
+                        $scope.reset = function() {
+                            $scope.user = angular.copy($scope.master);
+                        };
+                        $scope.reset();
+                    }]);
+    </script>
+    <style>
+        .angu_main{
+            float: none;
+            margin:0 auto;
+            width: 50%;
+        }
+        h3{
+            text-align: center;
+        }
+    </style>
+    <body ng-init="">
+        <div class="angu_main" ng-controller="ExampleController">
+            <h3>Angular Form</h3>
+            <form novalidate role="form" action="javascript:;">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="user.email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="user.password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" id="exampleInputFile" ng-model="user.file">
+                    <p class="help-block">Example block-level help text here.</p>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
